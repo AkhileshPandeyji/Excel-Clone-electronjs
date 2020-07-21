@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="menu">
+        <div class="menu-items ib" id="file">File</div>
+        <div class="menu-items ib" id="home">Home</div>
+    </div>
+    <div class="menu-options">
+        <div class="menu-options-items" id="file-options">
+            <div class="menu-option ib" id="new"><button><img src="./images/new-icon.png"/ style="height:30px;width:40px;"></button></div>
+            <div class="menu-option ib" id="open"><button><img src="./images/open-icon.png" style="height:30px;width:40px;"/></button></div>
+            <div class="menu-option ib" id="save"><button><img src="./images/save-icon.png" style="height:30px;width:40px;"/></button></div>
+        </div>
+        <div class="menu-options-items" id="home-options">
+           <div class="menu-block">
+               <div class="menu-row-font">
+                <div class="menu-btn">
+                    <select id="font-name">
+                        <option value="Franklin Gothic Medium" >Franklin Gothic Medium</option>
+                        <option value="Verdana" selected>Verdana</option>
+                        <option value="Arial">Arial</option>
+                        <option value="sans-serif">Sans-serif</option>
+                        <option value="Cambria">Cambria</option>
+                    </select>
+                </div>
+                <div class="menu-btn">
+                    <select id="font-size">
+                        <option value="8">8</option>
+                        <option value="14" selected>14</option>
+                        <option value="18">18</option>
+                        <option value="24">24</option>
+                        <option value="32">32</option>
+                        <option value="48">48</option>
+                        <option value="64">64</option>
+                        <option value="72">72</option>
+                    </select>
+                </div>
+                <div id="font-color" class="menu-btn">
+                    <input type="color" value="#ffffff" id="font-color-back"/>
+                    <input type="color" value="#000000" id="font-color-front"/>
+                </div>
+               </div>
+               <div class="menu-row-alignment">
+                <button class="align-btn" id="left-align-btn"><img src="./images/align-left.png" style="height:22px; width:24px;" /></button>
+                <button class="align-btn" id="center-align-btn"><img src="./images/align-center.png" style="height:22px; width:24px;" /></button>
+                <button class="align-btn" id="right-align-btn"><img src="./images/align-right.png" style="height:22px; width:24px;" /></button>
+               </div>
+           </div>  
+           <div class="styling-menu">
+               <button class="align-btn" style="margin-right: 8px; font-weight: bold;" id="bold-btn">B</button>
+               <button class="align-btn" style="margin-right: 8px; font-style: italic;" id="italics-btn">I</button>
+               <button class="align-btn" style="margin-right: 8px; text-decoration: underline;" id="underline-btn">U</button>
+           </div>          
+        </div>
+    </div>
+    <div class="formula-bar">
+        <label for="address"><img src="./images/search-icon.png"/ style="height:20px;width:20px;"></label>
+        <input type="text" id="address">
+        <label for="formula"><img src="./images/fx-icon.png"/ style="height:20px;width:20px;"></label>
+        <input type="text" id="formula">
+    </div>
+    <div class="cells-container">
+        <div id="top-left-cell">
+            ^
+        </div>
+        <div id="top-row">
+            <% for(let j=0;j<cols;j++){ %>
+            <div class=top-row-col>
+                <%=String.fromCharCode(65+j)%>
+            </div>
+            <%}%>
+        </div>
+        <div id="left-col" class="left-col">
+            <%for(let i=1;i<=rows;i++){%>
+            <div class="left-col-cell">
+                <%=i%>
+            </div>
+            <%}%>
+        </div>
+        <div class="grid">
+            <%for(let i=0;i<rows;i++){%>
+            <div class="row">
+                <% for(let j=0;j<cols;j++){ %>
+                <div class="col" contenteditable="true" ri=<%=i+1%> ci=<%=j%>>
+                </div>
+                <%}%>
+                </div>
+            <%}%>
+            </div>
+        </div>
+        <div class="sheets">Sheets</div>
+        <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
